@@ -1,0 +1,7 @@
+package com.example.endterm.exception;
+
+public class DuplicateResourceException extends InvalidInputException {
+    public DuplicateResourceException(String message) {
+        super(message);
+    }
+}
