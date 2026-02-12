@@ -9,14 +9,12 @@ public class GameItemFactory {
     public static GameItem create(ItemRequest req) {
         if (req == null) throw new InvalidInputException("Request body is required");
 
-        // Singleton usage ✅
         if (!ConfigManager.getInstance().isAllowedType(req.type)) {
             throw new InvalidInputException("Invalid type. Allowed: WEAPON, POTION");
         }
 
         String type = req.type.toUpperCase();
 
-        // Builder usage ✅
         if ("WEAPON".equals(type)) {
             return new WeaponBuilder()
                     .name(req.name)
