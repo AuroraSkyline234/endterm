@@ -63,7 +63,7 @@ public class ItemRepository {
         }
     }
 
-    // EXCLUDE deleted
+
     public GameItem findById(int id) {
         try {
             List<GameItem> list = jdbc.query(
@@ -76,7 +76,7 @@ public class ItemRepository {
         }
     }
 
-    // EXCLUDE deleted
+
     public List<GameItem> findAll() {
         try {
             return jdbc.query(
@@ -88,7 +88,7 @@ public class ItemRepository {
         }
     }
 
-    // DO NOT update deleted
+
     public int updateBasic(int id, String name, double weight, int goldValue) {
         try {
             return jdbc.update(
