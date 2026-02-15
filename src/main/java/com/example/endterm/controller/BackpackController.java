@@ -49,4 +49,9 @@ public class BackpackController {
                 .map(ItemMapper::toResponse)
                 .toList();
     }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable int id) {
+        backpackService.delete(id);
+    }
+
 }

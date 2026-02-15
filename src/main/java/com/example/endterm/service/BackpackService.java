@@ -36,4 +36,16 @@ public class BackpackService {
         if (b == null) throw new ResourceNotFoundException("Backpack with id " + id + " not found");
         return b;
     }
+    public void delete(int id) {
+        if (repo.findById(id) == null)
+            throw new ResourceNotFoundException("Backpack with id " + id + " not found");
+
+        if (repo.hasActiveItems(id))
+            throw new InvalidInputException("Cannot delete backpack " + id + " because it contains active items");
+
+        int rows = repo.delete(id);
+        if (rows == 0)
+            throw new ResourceNotFoundException("Backpack with id " + id + " not found");
+    }
+
 }
